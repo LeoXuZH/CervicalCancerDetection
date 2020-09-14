@@ -1,0 +1,2 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 tools/dist_train.sh configs/TCCC_roi/faster_rcnn_r50_fpn_2x_voc_dcn_RoiCC.py 4
+CUDA_VISIBLE_DEVICES=0,1,2,3 tools/dist_train.sh configs/TCCC_roi/faster_rcnn_r50_fpn_2x_voc_gc_dcn_RoiCC.py 4
