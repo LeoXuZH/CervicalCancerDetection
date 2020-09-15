@@ -329,7 +329,7 @@ class AnchorHead(BaseDenseHead):
         assert len(anchor_list) == len(valid_flag_list) == num_imgs
 
         # anchor number of multi levels
-        num_level_anchors = [anchors.size(0) for anchors in anchor_list[0]]
+        num_level_anchors = [anchors.size(0) for anchors in anchor_list[0]]  # per layer produce anchor number
         # concat all level anchors to a single tensor
         concat_anchor_list = []
         concat_valid_flag_list = []

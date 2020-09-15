@@ -75,7 +75,7 @@ class AnchorGenerator(object):
         if centers is not None:
             assert len(centers) == len(strides), \
                 'The number of strides should be the same as centers, got ' \
-                f'{strides} and {centers}'
+                    f'{strides} and {centers}'
 
         # calculate base sizes of anchors
         self.strides = [_pair(stride) for stride in strides]
@@ -83,18 +83,18 @@ class AnchorGenerator(object):
                            ] if base_sizes is None else base_sizes
         assert len(self.base_sizes) == len(self.strides), \
             'The number of strides should be the same as base sizes, got ' \
-            f'{self.strides} and {self.base_sizes}'
+                f'{self.strides} and {self.base_sizes}'
 
         # calculate scales of anchors
         assert ((octave_base_scale is not None
-                and scales_per_octave is not None) ^ (scales is not None)), \
+                 and scales_per_octave is not None) ^ (scales is not None)), \
             'scales and octave_base_scale with scales_per_octave cannot' \
             ' be set at the same time'
         if scales is not None:
             self.scales = torch.Tensor(scales)
         elif octave_base_scale is not None and scales_per_octave is not None:
             octave_scales = np.array(
-                [2**(i / scales_per_octave) for i in range(scales_per_octave)])
+                [2 ** (i / scales_per_octave) for i in range(scales_per_octave)])
             scales = octave_scales * octave_base_scale
             self.scales = torch.Tensor(scales)
         else:
@@ -218,7 +218,7 @@ class AnchorGenerator(object):
                 are the sizes of the corresponding feature lavel, \
                 num_base_anchors is the number of anchors for that level.
         """
-        assert self.num_levels == len(featmap_sizes)
+        assert self.num_levels == len(featmap_sizes)  # P2-P6
         multi_level_anchors = []
         for i in range(self.num_levels):
             anchors = self.single_level_grid_anchors(

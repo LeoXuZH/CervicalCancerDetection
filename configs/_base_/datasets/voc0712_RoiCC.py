@@ -6,7 +6,7 @@ img_norm_cfg = dict(
 train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True),
-    dict(type='Resize', img_scale=[(4096, 2000),(4096, 2200)], keep_ratio=True,multiscale_mode='range'),
+    dict(type='Resize', img_scale=[(1000, 500),(1000, 600)], keep_ratio=True,multiscale_mode='range'),
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
